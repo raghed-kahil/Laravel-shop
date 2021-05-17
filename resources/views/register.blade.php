@@ -21,13 +21,26 @@
                     <hr>
                     <form id="register-form" name="register-form" method="post">
                         @csrf
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input id="name" name="name" type="text" class="form-control" required>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input id="firstname" name="fname" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input id="lastname" name="lname" type="text" class="form-control" required>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input id="email" name="email" type="text" class="form-control" required>
+                            @error('email')
+                            <div id="email-exist" class="text text-danger">Email already exist, login instead?</div>
+                            @enderror
                             <div id="not-valid-email" class="text text-danger" style="display: none">Please enter a valid email</div>
                         </div>
                         <div class="form-group">
@@ -43,7 +56,6 @@
                         <div class="text-center">
                             <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
                         </div>
-                        <!--
                         <script>
                             $(document).ready(function (){
                                 const pass = $('#password,#password_confirmation');
@@ -61,12 +73,13 @@
                                         submit.attr('disabled',false);
                                     }
                                 })
-                                const expression = new RegExp('[0-9a-zA-Z]+@[0-9a-zA-Z]+.[0-9a-zA-Z]+');
+                                const expression = new RegExp('^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$');
                                 const email = $('#email');
                                 $('#register-form').submit(function () {
-                                    if (expression.test(email.text()))
+                                    if (expression.test(email.val()))
                                         return true;
                                     else {
+                                        console.log('Email: '+email.val());
                                         email.focus();
                                         email.addClass('border-danger');
                                         $('#not-valid-email').show();
@@ -75,7 +88,6 @@
                                 })
                             });
                         </script>
-                        -->
                     </form>
                 </div>
             </div>
@@ -85,14 +97,15 @@
                     <p class="lead">Already our customer?</p>
                     <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                     <hr>
-                    <form action="customer-orders" method="post">
+                    <form action="login" method="post">
+                        @csrf
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input id="login-email" type="text" class="form-control">
+                            <input id="login-email" name="email" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input id="login-password" type="password" class="form-control">
+                            <input id="login-password" name="password" type="password" class="form-control">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>

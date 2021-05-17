@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\registerController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +17,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('home')->with('title','Obaju : e-commerce template');
-//});
+Route::get('/', function () {
+    return view('home')->with('title','Obaju : e-commerce template');
+})->name('home')->middleware('verified');
+
+Route::post('register', registerController::class);
+
+Route::get('/auth/email/verify', function () {
+    return view('verify-email')->with('title','Verify');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/auth/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/auth/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::post('login', function (Request $request){
+    if (Auth::attempt($request->only(['email','password']),true)){
+        $request->session()->regenerate();
+        return redirect()->home();
+    }
+    return response($request->only(['email','password']),400);
+});
 
 Route::get('{page?}', function ($page = 'home') {
     return view($page)->with('title','Obaju : e-commerce template');
 })
-    ->where('page','[A-Za-z0-9-]*');
-
-Route::post('register', registerController::class);
-Route::post('login', registerController::class);
+    ->where('page','^[A-Za-z0-9-]*$');

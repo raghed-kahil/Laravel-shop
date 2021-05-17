@@ -9,8 +9,8 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <ul class="menu list-inline mb-0">
                     <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                    <li class="list-inline-item"><a href="register">Register</a></li>
-                    <li class="list-inline-item"><a href="contact">Contact</a></li>
+                    <li class="list-inline-item"><a href=/register">Register</a></li>
+                    <li class="list-inline-item"><a href=/contact">Contact</a></li>
                     <li class="list-inline-item"><a href="#">Recently viewed</a></li>
                 </ul>
             </div>
@@ -24,19 +24,19 @@
                     <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="customer-orders" method="post">
+                    <form action="/login" method="post">
                         <div class="form-group">
-                            <input id="email-modal" type="text" placeholder="email" class="form-control">
+                            <input id="email-modal" name="email" type="text" placeholder="email" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input id="password-modal" type="password" placeholder="password" class="form-control">
+                            <input id="password-modal" name="password" type="password" placeholder="password" class="form-control">
                         </div>
                         <p class="text-center">
                             <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
                         </p>
                     </form>
                     <p class="text-center text-muted">Not registered yet?</p>
-                    <p class="text-center text-muted"><a href="register"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                    <p class="text-center text-muted"><a href=/register"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
                 </div>
             </div>
         </div>

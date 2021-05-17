@@ -120,7 +120,7 @@
                 </div>
               </div>
               <!-- *** MENUS AND FILTERS END ***-->
-              <div class="banner"><a href="#"><img src="img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div>
+              <div class="banner"><a href="#"><img src="/img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div>
             </div>
             <div class="col-lg-9">
               <div class="box">
@@ -149,10 +149,10 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="img/product1.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="img/product1_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="detail"><img src="/img/product1.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="detail"><img src="/img/product1_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="img/product1.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="detail" class="invisible"><img src="/img/product1.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><a href="detail">Fur coat with very but very very long name</a></h3>
                       <p class="price">
@@ -168,10 +168,10 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="img/product2_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="detail"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="detail"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="detail" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><a href="detail">White Blouse Armani</a></h3>
                       <p class="price">
@@ -202,10 +202,10 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="img/product3_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="detail"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="detail"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="img/product3.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="detail" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><a href="detail">Black Blouse Versace</a></h3>
                       <p class="price">
@@ -221,10 +221,10 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="img/product3_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="detail"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="detail"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="img/product3.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="detail" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><a href="detail">Black Blouse Versace</a></h3>
                       <p class="price">
@@ -240,10 +240,10 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="img/product2_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="detail"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="detail"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="detail" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><a href="detail">White Blouse Versace</a></h3>
                       <p class="price">
@@ -264,10 +264,10 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="img/product1.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="img/product1_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="detail"><img src="/img/product1.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="detail"><img src="/img/product1_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="img/product1.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="detail" class="invisible"><img src="/img/product1.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><a href="detail">Fur coat</a></h3>
                       <p class="price">
