@@ -9,8 +9,8 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <ul class="menu list-inline mb-0">
                     <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                    <li class="list-inline-item"><a href=/register">Register</a></li>
-                    <li class="list-inline-item"><a href=/contact">Contact</a></li>
+                    <li class="list-inline-item"><a href="/register">Register</a></li>
+                    <li class="list-inline-item"><a href="/contact">Contact</a></li>
                     <li class="list-inline-item"><a href="#">Recently viewed</a></li>
                 </ul>
             </div>
