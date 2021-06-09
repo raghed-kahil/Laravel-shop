@@ -13,25 +13,7 @@
               </nav>
             </div>
             <div class="col-lg-3">
-              <!--
-              *** CUSTOMER MENU ***
-              _________________________________________________________
-              -->
-              <div class="card sidebar-menu">
-                <div class="card-header">
-                  <h3 class="h4 card-title">Customer section</h3>
-                </div>
-                <div class="card-body">
-                  <ul class="nav nav-pills flex-column">
-                      <a href="customer-orders" class="nav-link"><i class="fa fa-list"></i> My orders</a>
-                      <a href="customer-wishlist" class="nav-link active"><i class="fa fa-heart"></i> My wishlist</a>
-                      <a href="customer-account" class="nav-link"><i class="fa fa-user"></i> My account</a>
-                      <a href="index" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a>
-                  </ul>
-                </div>
-              </div>
-              <!-- /.col-lg-3-->
-              <!-- *** CUSTOMER MENU END ***-->
+              <x-costumer-side-bar-menu :page="2"/>
             </div>
             <div id="wishlist" class="col-lg-9">
               <ul class="breadcrumb">
@@ -47,16 +29,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product1.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product1_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product1.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product1_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product1.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product1.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">Fur coat with very but very very long name</a></h3>
+                      <h3><a href="/products">Fur coat with very but very very long name</a></h3>
                       <p class="price">
                         <del></del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                   </div>
@@ -66,16 +48,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">White Blouse Armani</a></h3>
+                      <h3><a href="/products">White Blouse Armani</a></h3>
                       <p class="price">
                         <del>$280</del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                     <div class="ribbon sale">
@@ -100,16 +82,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">Black Blouse Versace</a></h3>
+                      <h3><a href="/products">Black Blouse Versace</a></h3>
                       <p class="price">
                         <del></del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                   </div>
@@ -119,16 +101,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">Black Blouse Versace</a></h3>
+                      <h3><a href="/products">Black Blouse Versace</a></h3>
                       <p class="price">
                         <del></del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                   </div>
@@ -138,16 +120,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">White Blouse Versace</a></h3>
+                      <h3><a href="/products">White Blouse Versace</a></h3>
                       <p class="price">
                         <del></del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                     <div class="ribbon new">
@@ -162,16 +144,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product1.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product1_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product1.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product1_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product1.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product1.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">Fur coat</a></h3>
+                      <h3><a href="/products">Fur coat</a></h3>
                       <p class="price">
                         <del></del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                     <div class="ribbon gift">
@@ -186,16 +168,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product2_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">White Blouse Armani</a></h3>
+                      <h3><a href="/products">White Blouse Armani</a></h3>
                       <p class="price">
                         <del>$280</del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                     <div class="ribbon sale">
@@ -220,16 +202,16 @@
                   <div class="product">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="/products"><img src="/img/product3.jpg" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="/products"><img src="/img/product3_2.jpg" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="/products" class="invisible"><img src="/img/product3.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
-                      <h3><a href="detail">Black Blouse Versace</a></h3>
+                      <h3><a href="/products">Black Blouse Versace</a></h3>
                       <p class="price">
                         <del></del>$143.00
                       </p>
-                      <p class="buttons"><a href="detail" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+                      <p class="buttons"><a href="/products" class="btn btn-outline-secondary">View detail</a><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
                     </div>
                     <!-- /.text-->
                   </div>

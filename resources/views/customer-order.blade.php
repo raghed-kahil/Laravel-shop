@@ -7,33 +7,20 @@
               <!-- breadcrumb-->
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li aria-current="page" class="breadcrumb-item"><a href="#">My orders</a></li>
-                  <li aria-current="page" class="breadcrumb-item active">Order # 1735</li>
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li aria-current="page" class="breadcrumb-item"><a href="./..">My orders</a></li>
+                  <li aria-current="page" class="breadcrumb-item active">Order # {{$order->id}}</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-3">
-              <!--
-              *** CUSTOMER MENU ***
-              _________________________________________________________
-              -->
-              <div class="card sidebar-menu">
-                <div class="card-header">
-                  <h3 class="h4 card-title">Customer section</h3>
-                </div>
-                <div class="card-body">
-                  <ul class="nav nav-pills flex-column"><a href="customer-orders" class="nav-link active"><i class="fa fa-list"></i> My orders</a><a href="customer-wishlist" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a><a href="customer-account" class="nav-link"><i class="fa fa-user"></i> My account</a><a href="index" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></ul>
-                </div>
-              </div>
-              <!-- /.col-lg-3-->
-              <!-- *** CUSTOMER MENU END ***-->
+              <x-costumer-side-bar-menu :page="1"/>
             </div>
             <div id="customer-order" class="col-lg-9">
               <div class="box">
-                <h1>Order #1735</h1>
-                <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
-                <p class="text-muted">If you have any questions, please feel free to <a href="contact">contact us</a>, our customer service center is working for you 24/7.</p>
+                <h1>Order #{{$order->id}}</h1>
+                <p class="lead">Order #{{$order->id}} was placed on <strong>{{date('d/m/Y',strtotime($order->created_at))}}</strong> and is currently <strong>{{$order->status}}</strong>.</p>
+                <p class="text-muted">If you have any questions, please feel free to <a href="/contact">contact us</a>, our customer service center is working for you 24/7.</p>
                 <hr>
                 <div class="table-responsive mb-4">
                   <table class="table">
@@ -47,14 +34,20 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @php
+                      $json = json_decode($order->products,true);
+                      $total=0;
+                    @endphp
+                    @foreach($json['products'] as $product)
                       <tr>
                         <td><a href="#"><img src="/img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
                         <td><a href="#">White Blouse Armani</a></td>
-                        <td>2</td>
-                        <td>$123.00</td>
-                        <td>$0.00</td>
-                        <td>$246.00</td>
+                        <td>{{$product['quantity']}}</td>
+                        <td>${{$product['price']}}</td>
+                        <td>${{$product['discount']}}</td>
+                        <td>${{$total+=($product['price']*$product['quantity']-$product['discount'])}}</td>
                       </tr>
+                    @endforeach
                       <tr>
                         <td><a href="#"><img src="/img/basketsquare.jpg" alt="Black Blouse Armani"></a></td>
                         <td><a href="#">Black Blouse Armani</a></td>
@@ -67,7 +60,7 @@
                     <tfoot>
                       <tr>
                         <th colspan="5" class="text-right">Order subtotal</th>
-                        <th>$446.00</th>
+                        <th>${{$total}}</th>
                       </tr>
                       <tr>
                         <th colspan="5" class="text-right">Shipping and handling</th>

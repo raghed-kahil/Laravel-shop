@@ -79,7 +79,6 @@
                                     if (expression.test(email.val()))
                                         return true;
                                     else {
-                                        console.log('Email: '+email.val());
                                         email.focus();
                                         email.addClass('border-danger');
                                         $('#not-valid-email').show();
@@ -107,6 +106,9 @@
                             <label for="password">Password</label>
                             <input id="login-password" name="password" type="password" class="form-control">
                         </div>
+                      @if($errorLogin)
+                        <div class="text-danger">Wrong username or password</div>
+                      @endif
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
                         </div>

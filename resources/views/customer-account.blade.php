@@ -1,3 +1,4 @@
+{{Session::get('wrongPassword',123).' '.Auth::user()->password}}
 @extends('master')
 @section('content')
       <div id="content">
@@ -7,31 +8,13 @@
               <!-- breadcrumb-->
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="">Home</a></li>
                   <li aria-current="page" class="breadcrumb-item active">My account</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-3">
-              <!--
-              *** CUSTOMER MENU ***
-              _________________________________________________________
-              -->
-              <div class="card sidebar-menu">
-                <div class="card-header">
-                  <h3 class="h4 card-title">Customer section</h3>
-                </div>
-                <div class="card-body">
-                    <ul class="nav nav-pills flex-column">
-                        <a href="customer-orders" class="nav-link"><i class="fa fa-list"></i> My orders</a>
-                        <a href="customer-wishlist" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a>
-                        <a href="customer-account" class="nav-link active"><i class="fa fa-user"></i> My account</a>
-                        <a href="index" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a>
-                    </ul>
-                </div>
-              </div>
-              <!-- /.col-lg-3-->
-              <!-- *** CUSTOMER MENU END ***-->
+              <x-costumer-side-bar-menu :page="3"/>
             </div>
             <div class="col-lg-9">
               <div class="box">
@@ -39,47 +22,55 @@
                 <p class="lead">Change your personal details or your password here.</p>
                 <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
                 <h3>Change password</h3>
-                <form>
+                <form action="" method="post">
+                  @csrf
+                  <input name="change-password" type="hidden" value=1>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="password_old">Old password</label>
-                        <input id="password_old" type="password" class="form-control">
+                        <input name="password_old" id="password_old" type="password" class="form-control">
+                        @if($wrongPassword)
+                          <div class="text-danger">Incorrect Password!</div>
+                        @endif
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="password_1">New password</label>
-                        <input id="password_1" type="password" class="form-control">
+                        <label for="password">New password</label>
+                        <input id="password" name="password" type="password" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="password_2">Retype new password</label>
-                        <input id="password_2" type="password" class="form-control">
+                        <label for="password_confirmation">Retype new password</label>
+                        <input id="password_confirmation" name="password_confirmation" type="password" class="form-control">
+                        <div id="not-match" style="display: none" class="text-danger">Passwords not match!</div>
                       </div>
                     </div>
                   </div>
                   <!-- /.row-->
                   <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new password</button>
+                    <button id="submit-pass" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new password</button>
                   </div>
                 </form>
                 <h3 class="mt-5">Personal details</h3>
-                <form>
+                <form id="pd-form" method="post" action="">
+                  @csrf
+                  <input name="change-password" type="hidden" value=0>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="firstname">Firstname</label>
-                        <input id="firstname" type="text" class="form-control">
+                        <input id="firstname" name="fname" type="text" class="form-control" value="{{$user->fname}}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="lastname">Lastname</label>
-                        <input id="lastname" type="text" class="form-control">
+                        <input id="lastname" name="lname" type="text" class="form-control" value="{{$user->lname}}">
                       </div>
                     </div>
                   </div>
@@ -88,13 +79,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="company">Company</label>
-                        <input id="company" type="text" class="form-control">
+                        <input id="company" name="company" type="text" class="form-control" value="{{$user->company}}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="street">Street</label>
-                        <input id="street" type="text" class="form-control">
+                        <input id="street" name="street" type="text" class="form-control" value="{{$user->street}}">
                       </div>
                     </div>
                   </div>
@@ -102,38 +93,39 @@
                   <div class="row">
                     <div class="col-md-6 col-lg-3">
                       <div class="form-group">
-                        <label for="city">Company</label>
-                        <input id="city" type="text" class="form-control">
+                        <label for="city">city</label>
+                        <input id="city" name="city" type="text" class="form-control" value="{{$user->city}}">
                       </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
                       <div class="form-group">
                         <label for="zip">ZIP</label>
-                        <input id="zip" type="text" class="form-control">
+                        <input id="zip" name="zip" type="text" class="form-control" value="{{$user->zip}}">
                       </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
                       <div class="form-group">
                         <label for="state">State</label>
-                        <select id="state" class="form-control"></select>
+                        <input id="state" name="state" class="form-control" value="{{$user->state}}">
                       </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
                       <div class="form-group">
                         <label for="country">Country</label>
-                        <select id="country" class="form-control"></select>
+                        <input id="country" name="country" class="form-control" value="{{$user->country}}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="phone">Telephone</label>
-                        <input id="phone" type="text" class="form-control">
+                        <label for="phone">Phone</label>
+                        <input id="phone" name="phone" type="tel" class="form-control" value="{{$user->phone}}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input id="email" type="text" class="form-control">
+                        <input id="email" name="email" type="text" class="form-control" value="{{$user->email}}">
+                        <div id="not-valid-email" style="display: none" class="text-danger">Please enter a valid Email!</div>
                       </div>
                     </div>
                     <div class="col-md-12 text-center">
@@ -141,6 +133,36 @@
                     </div>
                   </div>
                 </form>
+                <script>
+                  $(document).ready(function (){
+                    const pass = $('#password,#password_confirmation');
+                    const NF = $('#not-match');
+                    const submit = $('#submit-pass');
+                    pass.keyup(function () {
+                      if($('#password').val()!==$('#password_confirmation').val()){
+                        pass.addClass('border-danger');
+                        NF.show();
+                        submit.attr('disabled',true)
+                      }
+                      else {
+                        pass.removeClass('border-danger');
+                        NF.hide();
+                        submit.attr('disabled',false);
+                      }})
+                    const expression = new RegExp('^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$');
+                    const email = $('#email');
+                    $('#pd-form').submit(function () {
+                      if (expression.test(email.val()))
+                        return true;
+                      else {
+                        email.focus();
+                        email.addClass('border-danger');
+                        $('#not-valid-email').show();
+                        return false;
+                      }
+                    })
+                  });
+                </script>
               </div>
             </div>
           </div>

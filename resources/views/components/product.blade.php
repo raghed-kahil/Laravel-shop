@@ -1,55 +1,79 @@
+
 <div class="col-lg-4 col-md-6">
-    <div class="product">
-        <div class="flip-container">
-            <div class="flipper">
-                <div class="front">
-                    <a href="/detail">
-                        <img src="/img/product2.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <div class="back">
-                    <a href="detail">
-                        <img src="/img/product2_2.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
+  <div class="product">
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front">
+          <a href="/products/{{$product->id}}">
+            <img src="{{$product->img1}}" alt="" class="img-fluid">
+          </a>
         </div>
-        <a href="detail" class="invisible"><img src="/img/product2.jpg" alt="" class="img-fluid"></a>
-        <div class="text">
-            <h3><a href="detail">White Blouse Armani</a></h3>
-            <p class="price">
-                @if($hasSale)
-                    <del>$280</del>
-                @endif
-                ${{$price}}
-            </p>
-            <p class="buttons">
-                <a href="detail" class="btn btn-outline-secondary">View detail</a>
-                <a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-            </p>
+        <div class="back">
+          <a href="/products/{{$product->id}}">
+            <img src="{{$product->img2}}" alt="" class="img-fluid">
+          </a>
         </div>
-        <!-- /.text-->
-        @if($hasSale)
-            <div class="ribbon sale">
-                <div class="theribbon">SALE</div>
-                <div class="ribbon-background"></div>
-            </div>
-            <!-- /.ribbon-->
-        @endif
-        @if($isNew)
-            <div class="ribbon new">
-                <div class="theribbon">NEW</div>
-                <div class="ribbon-background"></div>
-            </div>
-            <!-- /.ribbon-->
-        @endif
-        @if($hasGift)
-            <div class="ribbon gift">
-                <div class="theribbon">GIFT</div>
-                <div class="ribbon-background"></div>
-            </div>
-            <!-- /.ribbon-->
-        @endif
+      </div>
     </div>
-    <!-- /.product -->
+    <a href="/products/{{$product->id}}" class="invisible"><img src="{{$product->img1}}" alt="" class="img-fluid"></a>
+    <div class="text">
+      <h3><a href="/products/{{$product->id}}">{{$product->name}}</a></h3>
+      <p class="price">
+        @if($product->sale>0)
+          <del>${{$product->price}}</del>
+          ${{$product->price-$product->price*$product->sale}}
+        @else
+          ${{$product->price}}
+        @endif
+      </p>
+      <p class="buttons">
+        <a href="/products/{{$product->id}}" class="btn btn-outline-secondary">View detail</a>
+        <button product="{{$product->id}}" class="btn btn-primary add-to-basket"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+      </p>
+    </div>
+    <!-- /.text-->
+    @if($product->sale>0)
+      <div class="ribbon sale">
+        <div class="theribbon">SALE</div>
+        <div class="ribbon-background"></div>
+      </div>
+      <!-- /.ribbon-->
+    @endif
+    @if(strtotime($product->created_at) > strtotime('-7 days'))
+      <div class="ribbon new">
+        <div class="theribbon">NEW</div>
+        <div class="ribbon-background"></div>
+      </div>
+      <!-- /.ribbon-->
+    @endif
+    @if($product->gift!=null)
+      <div class="ribbon gift">
+        <div class="theribbon"><a href="/products/{{$product->gift}}" style="color: white">GIFT</a></div>
+        <div class="ribbon-background"></div>
+      </div>
+      <!-- /.ribbon-->
+    @endif
+  </div>
+  <!-- /.product -->
 </div>
+@once
+  @push('scripts')
+    <script>
+      $(document).ready(function () {
+        $('.add-to-basket').click(function () {
+          $.ajax({
+            url: '/basket/'+$(this).attr('product'),
+            type: 'PUT',
+            data: {
+              'id': {{$product->id}},
+              '_token': '{{csrf_token()}}'
+            },
+            success: function(response) {
+              $('#basket-button').text(response+' items in cart');
+            }
+          });
+        })
+      });
+    </script>
+  @endpush
+@endonce
