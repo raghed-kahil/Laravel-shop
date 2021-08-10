@@ -59,7 +59,8 @@ $details = json_decode($product->details,true);
                         ${{$product->price}}
                       @endif
                     </p>
-                    <p class="text-center buttons"><a href="basket" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a><a href="basket" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
+                    <p class="text-center buttons"><button product="{{$product->id}}" class="btn btn-primary add-to-basket"><i class="fa fa-shopping-cart"></i> Add to cart</button><a href="basket" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
+                    <x-add-to-basket-script/>
                   </div>
                   <div data-slider-id="1" class="owl-thumbs">
                     <button class="owl-thumb-item"><img src="/img/detailsquare.jpg" alt="" class="img-fluid"></button>
@@ -68,7 +69,7 @@ $details = json_decode($product->details,true);
                   </div>
                 </div>
               </div>
-              <div id="/productss" class="box">
+              <div id="products" class="box">
                 <p></p>
                 <h4>Product details</h4>
                 <p>{{$details['Product details']}}</p>

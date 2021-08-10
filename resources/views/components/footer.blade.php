@@ -25,16 +25,16 @@ _________________________________________________________
                 <h4 class="mb-3">Top categories</h4>
                 <h5>Men</h5>
                 <ul class="list-unstyled">
-                    <li><a href="category">T-shirts</a></li>
-                    <li><a href="category">Shirts</a></li>
-                    <li><a href="category">Accessories</a></li>
+                    <li><a href="/products">T-shirts</a></li>
+                    <li><a href="/products">Shirts</a></li>
+                    <li><a href="/products">Accessories</a></li>
                 </ul>
                 <h5>Ladies</h5>
                 <ul class="list-unstyled">
-                    <li><a href="category">T-shirts</a></li>
-                    <li><a href="category">Skirts</a></li>
-                    <li><a href="category">Pants</a></li>
-                    <li><a href="category">Accessories</a></li>
+                    <li><a href="/products">T-shirts</a></li>
+                    <li><a href="/products">Skirts</a></li>
+                    <li><a href="/products">Pants</a></li>
+                    <li><a href="/products">Accessories</a></li>
                 </ul>
             </div>
             <!-- /.col-lg-3-->

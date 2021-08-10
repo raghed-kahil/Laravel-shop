@@ -1,4 +1,4 @@
-{{print_r($basket)}}
+{{Cookie::get('basket')}}
 @extends('master')
 @section('content')
       <div id="content">

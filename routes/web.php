@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Basket;
-use App\Http\Controllers\Category;
+use App\Http\Controllers\Products;
 use App\Http\Controllers\CostumerOrders;
 use App\Http\Controllers\CustomerAccount;
 use App\Http\Controllers\Register;
@@ -64,7 +64,7 @@ Route::get('/auth/email/verify/{id}/{hash}', function (EmailVerificationRequest 
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::resource('/products', Category::class)
+Route::resource('/products', Products::class)
     ->withoutMiddleware(VerifyCsrfToken::class)
     ->only('index', 'store');
 

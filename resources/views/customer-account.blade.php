@@ -1,4 +1,3 @@
-{{Session::get('wrongPassword',123).' '.Auth::user()->password}}
 @extends('master')
 @section('content')
       <div id="content">

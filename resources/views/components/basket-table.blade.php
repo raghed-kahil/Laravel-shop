@@ -24,7 +24,7 @@
         <input type="number" min="1" max="1000" value="{{ $basket[$product->id] }}" class="form-control">
       </td>
       <td>${{$product->price}}</td>
-      <td>${{$products->price * $product->sale}}</td>
+      <td>${{$product->price * $product->sale}}</td>
       <td>${{ $x }}</td>
       <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
     </tr>
